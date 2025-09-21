@@ -1,0 +1,3 @@
+#include "main.h"
+
+MYICON ICON user_icon.ico
