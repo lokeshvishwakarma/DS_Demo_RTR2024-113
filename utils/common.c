@@ -27,5 +27,5 @@ float fish_04_PosX = -10.0f;
 float fish_04_PosY = -1.8f;
 float fish_04_Speed = 0.005f;
 float fish_05_PosX = 8.0f;
-float fish_05_PosY = 2.7f;
+float fish_05_PosY = 1.7f;
 float fish_05_Speed = 0.005f;
