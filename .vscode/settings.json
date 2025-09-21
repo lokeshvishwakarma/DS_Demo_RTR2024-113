@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "main.h": "c",
+        "common.h": "c",
+        "scenerender.h": "c",
+        "matrixeffect.h": "c",
+        "scene1.h": "c",
+        "intro.h": "c"
+    }
+}
