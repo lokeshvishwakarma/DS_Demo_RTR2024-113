@@ -29,3 +29,9 @@ float fish_04_Speed = 0.005f;
 float fish_05_PosX = 8.0f;
 float fish_05_PosY = 1.7f;
 float fish_05_Speed = 0.005f;
+
+// wave related variables
+int x, y;
+float float_x, float_y, float_xb, float_yb; 
+float points[45][45][3];
+float wiggleCount = 0.0f;

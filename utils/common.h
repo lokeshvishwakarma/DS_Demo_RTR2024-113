@@ -37,3 +37,9 @@ extern float fish_04_Speed;
 extern float fish_05_PosX;
 extern float fish_05_PosY;
 extern float fish_05_Speed;
+
+// wave related variables
+extern int x, y;
+extern float float_x, float_y, float_xb, float_yb; 
+extern float points[45][45][3];
+extern float wiggleCount;
