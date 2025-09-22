@@ -80,15 +80,19 @@ void drawIntro(void)
 		// Front face
 		// Top Right
 		glTexCoord2f(1.0f, 1.0f);
+		glColor4f(1.0f, 1.0f, 1.0f, alpha);
 		glVertex3f(1.5f, 1.0f, 0.0f);
 		// Top Left
 		glTexCoord2f(0.0f, 1.0f);
+		glColor4f(1.0f, 1.0f, 1.0f, alpha);
 		glVertex3f(-1.5f, 1.0f, 0.0f);
 		// Bottom Left
 		glTexCoord2f(0.0f, 0.0f);
+		glColor4f(1.0f, 1.0f, 1.0f, alpha);
 		glVertex3f(-1.5f, -1.0f, 0.0f);
 		// Bottom Right
 		glTexCoord2f(1.0f, 0.0f);
+		glColor4f(1.0f, 1.0f, 1.0f, alpha);
 		glVertex3f(1.5f, -1.0f, 0.0f);
 		glEnd();
 		// Unbind texture
@@ -163,6 +167,7 @@ void updateIntro(void)
 	// Update intro here
 	if (iTimeElapsed > 80 && iTimeElapsed < 150)
 	{
+		// alpha -= 0.0001f;
 		intro_PosY += intro_Speed;
 		if (intro_PosY >= 10.0f)
 		{

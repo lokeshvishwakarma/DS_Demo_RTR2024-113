@@ -30,6 +30,9 @@ float fish_05_PosX = 8.0f;
 float fish_05_PosY = 1.7f;
 float fish_05_Speed = 0.005f;
 
+// Alpha related variables
+float alpha = 1.0f;
+
 // wave related variables
 int x, y;
 float float_x, float_y, float_xb, float_yb; 

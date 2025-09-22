@@ -262,7 +262,7 @@ void updateSkyAndUnderwater(void)
 		}
 		if (fish_02_PosX <= -10.0f)
 		{
-			fish_02_PosX = -10.0f;
+			fish_02_PosX = 10.0f;
 		}
 		if (fish_03_PosX >= 10.0f)
 		{
@@ -274,7 +274,7 @@ void updateSkyAndUnderwater(void)
 		}
 		if (fish_05_PosX <= -10.0f)
 		{
-			fish_05_PosX = -10.0f;
+			fish_05_PosX = 10.0f;
 		}
 	}
 }

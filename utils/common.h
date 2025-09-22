@@ -38,6 +38,9 @@ extern float fish_05_PosX;
 extern float fish_05_PosY;
 extern float fish_05_Speed;
 
+// Alpha related variables
+extern float alpha;
+
 // wave related variables
 extern int x, y;
 extern float float_x, float_y, float_xb, float_yb; 
