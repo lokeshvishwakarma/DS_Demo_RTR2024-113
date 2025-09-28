@@ -43,6 +43,20 @@ void initScenes(void) {
     outro.nextScene = NULL;
     currentScene = &intro;   // Start with intro
 
+    FILE *fp = fopen("../assets/MasoliCheGaane.wav", "r");
+    BOOL is_exist = FALSE;
+    if (fp != NULL)
+    {
+        is_exist = TRUE;
+        fprintf(gpFile, "Audio loaded successfully!\n");
+        fclose(fp); // close the file
+    }
+    if (is_exist == TRUE)
+    {
+        fprintf(gpFile, "Playing sound!\n");
+        PlaySound("../assets/MasoliCheGaane.wav", NULL, SND_ASYNC | SND_FILENAME);
+    }
+
 }
 
 // Update the current scene

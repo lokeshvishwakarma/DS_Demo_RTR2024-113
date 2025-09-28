@@ -8,6 +8,9 @@
 #include<gl/GL.h>
 #include<gl/GLU.h>
 
+#include <time.h>
+#include <mmsystem.h>
+
 // Global External Variables
 extern float sunPosX;
 extern float sunPosY;
@@ -19,6 +22,9 @@ extern float skyWaterSpeed;
 extern float waterOverlayPosX;
 extern float waterOverlayPosY;
 extern float waterOverlaySpeed;
+extern float preIntro_PosX;
+extern float preIntro_PosY;
+extern float preIntro_Speed;
 extern float intro_PosX;
 extern float intro_PosY;
 extern float intro_Speed;
@@ -37,6 +43,9 @@ extern float fish_04_Speed;
 extern float fish_05_PosX;
 extern float fish_05_PosY;
 extern float fish_05_Speed;
+extern float penguin_PosX;
+extern float penguin_PosY;
+extern float penguin_Speed;
 
 // Alpha related variables
 extern float alpha;

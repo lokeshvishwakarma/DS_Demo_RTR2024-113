@@ -11,6 +11,7 @@ extern texture_fish_02;
 extern texture_fish_03;
 extern texture_fish_04;
 extern texture_fish_05;
+extern texture_penguin;
 
 void drawSkyAndUnderwater(void)
 {
@@ -216,6 +217,35 @@ void drawSkyAndUnderwater(void)
 	}
 	glPopMatrix();
 
+	// ------------- DRAW PENGUIN --------------
+	glLoadIdentity();
+	glPushMatrix();
+	{
+		glTranslatef(penguin_PosX, penguin_PosY, -8.8f);
+		glScalef(0.5f, 0.5f, 0.5f);
+		glBindTexture(GL_TEXTURE_2D, texture_penguin);
+		
+		// Draw quad here
+		glBegin(GL_QUADS);
+		// Front face
+		// Top Right
+		glTexCoord2f(1.0f, 1.0f);
+		glVertex3f(1.0f, 1.0f, 0.0f);
+		// Top Left
+		glTexCoord2f(0.0f, 1.0f);
+		glVertex3f(-1.0f, 1.0f, 0.0f);
+		// Bottom Left
+		glTexCoord2f(0.0f, 0.0f);
+		glVertex3f(-1.0f, -1.0f, 0.0f);
+		// Bottom Right
+		glTexCoord2f(1.0f, 0.0f);
+		glVertex3f(1.0f, -1.0f, 0.0f);
+		glEnd();
+		// Unbind texture
+		glBindTexture(GL_TEXTURE_2D, 0);
+	}
+	glPopMatrix();
+
 	// ------------- DRAW WATER OVERLAY --------------
     glLoadIdentity();
 	glPushMatrix();
@@ -249,7 +279,7 @@ void drawSkyAndUnderwater(void)
 void updateSkyAndUnderwater(void)
 {
 	// Update fish_01 here
-	if (iTimeElapsed > 0 && iTimeElapsed < 150)
+	if (iTimeElapsed > 0 && iTimeElapsed < 500)
 	{
 		fish_01_PosX += fish_01_Speed;
 		fish_02_PosX -= fish_02_Speed;
@@ -275,6 +305,16 @@ void updateSkyAndUnderwater(void)
 		if (fish_05_PosX <= -10.0f)
 		{
 			fish_05_PosX = 10.0f;
+		}
+	}
+
+	// Update penguin here
+	if (iTimeElapsed > 200 && iTimeElapsed < 900)
+	{
+		penguin_PosX -= penguin_Speed;
+		if (penguin_PosX <= -10.0f)
+		{
+			penguin_PosX = 10.0f;
 		}
 	}
 }

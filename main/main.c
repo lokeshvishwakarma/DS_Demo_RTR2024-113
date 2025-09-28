@@ -17,6 +17,7 @@
 // OpenGL related libraries
 #pragma comment(lib, "opengl32.lib")
 #pragma comment(lib, "GLU32.lib")
+#pragma comment(lib, "winmm.lib")
 
 // Macros
 #define WIN_WIDTH 800
@@ -46,7 +47,7 @@ FILE *gpFile = NULL;
 HDC ghdc = NULL; // Handle device context
 HGLRC ghrc = NULL; // Handle to graphics rendering context 
 
-// timer realted variables
+// timer related variables
 UINT_PTR timerId;
 UINT iTimeElapsed = 0;
 // time to update the update() function
@@ -58,10 +59,15 @@ extern Scene* currentScene;
 GLuint base;
 
 // Texture related variables
+extern GLuint texture_pre_intro = 0;
 extern GLuint texture_intro = 0;
+extern GLuint texture_tech_stack = 0;
+extern GLuint texture_credits = 0;
+extern GLuint texture_post_credits = 0;
 extern GLuint texture_sky_and_underwater = 0;
 extern GLuint texture_sun = 0;
 extern GLuint texture_water = 0;
+extern GLuint texture_penguin = 0;
 extern GLuint texture_fish_01 = 0;
 extern GLuint texture_fish_02 = 0;
 extern GLuint texture_fish_03 = 0;
@@ -397,58 +403,70 @@ int initialize(void)
 	// Load Textures here
 	stbi_set_flip_vertically_on_load(TRUE);
 
+	if (LoadPNGTexture(&texture_pre_intro, "../assets/PreIntroRoll.png") == FALSE)
+	{
+		fprintf(gpFile, "LoadPNGTexture() for texture_pre_intro failed\n");
+		return(-6);
+	}
+
 	if (LoadPNGTexture(&texture_intro, "../assets/Title.png") == FALSE)
 	{
 		fprintf(gpFile, "LoadPNGTexture() for texture_intro failed\n");
-		return(-6);
+		return(-7);
 	}
 	
 	if (LoadPNGTexture(&texture_sky_and_underwater, "../assets/SkyAndUnderWaterBG.png") == FALSE)
 	{
 		fprintf(gpFile, "LoadPNGTexture() for texture_sky failed\n");
-		return(-7);
+		return(-8);
 	}
 
 	if (LoadPNGTexture(&texture_sun, "../assets/Sun.png") == FALSE)
 	{
 		fprintf(gpFile, "LoadPNGTexture() for texture_sun failed\n");
-		return(-8);
+		return(-9);
 	}
 
 	if (LoadPNGTexture(&texture_water, "../assets/Water_64.png") == FALSE)
 	{
 		fprintf(gpFile, "LoadPNGTexture() for texture_Water_64 failed\n");
-		return(-9);
+		return(-10);
 	}
 
 	if (LoadPNGTexture(&texture_fish_01, "../assets/Fish_01.png") == FALSE)
 	{
 		fprintf(gpFile, "LoadPNGTexture() for texture_Fish_01 failed\n");
-		return(-10);
+		return(-11);
 	}
 
 	if (LoadPNGTexture(&texture_fish_02, "../assets/Fish_02.png") == FALSE)
 	{
 		fprintf(gpFile, "LoadPNGTexture() for texture_Fish_02 failed\n");
-		return(-11);
+		return(-12);
 	}
 
 	if (LoadPNGTexture(&texture_fish_03, "../assets/Fish_03.png") == FALSE)
 	{
 		fprintf(gpFile, "LoadPNGTexture() for texture_Fish_03 failed\n");
-		return(-12);
+		return(-13);
 	}
 
 	if (LoadPNGTexture(&texture_fish_04, "../assets/Fish_04.png") == FALSE)
 	{
 		fprintf(gpFile, "LoadPNGTexture() for texture_Fish_04 failed\n");
-		return(-13);
+		return(-14);
 	}
 
 	if (LoadPNGTexture(&texture_fish_05, "../assets/Fish_05.png") == FALSE)
 	{
 		fprintf(gpFile, "LoadPNGTexture() for texture_Fish_05 failed\n");
-		return(-14);
+		return(-15);
+	}
+
+	if (LoadPNGTexture(&texture_penguin, "../assets/Penguin.png") == FALSE)
+	{
+		fprintf(gpFile, "LoadPNGTexture() for texture_penguin failed\n");
+		return(-16);
 	}
 
 	// enabling texture
