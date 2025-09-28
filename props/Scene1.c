@@ -12,6 +12,9 @@ extern texture_fish_03;
 extern texture_fish_04;
 extern texture_fish_05;
 extern texture_penguin;
+extern texture_tech_stack;
+extern texture_credits;
+extern texture_post_credits;
 
 void drawSkyAndUnderwater(void)
 {
@@ -222,7 +225,7 @@ void drawSkyAndUnderwater(void)
 	glPushMatrix();
 	{
 		glTranslatef(penguin_PosX, penguin_PosY, -8.8f);
-		glScalef(0.5f, 0.5f, 0.5f);
+		glScalef(0.9f, 0.9f, 0.9f);
 		glBindTexture(GL_TEXTURE_2D, texture_penguin);
 		
 		// Draw quad here
@@ -240,6 +243,93 @@ void drawSkyAndUnderwater(void)
 		// Bottom Right
 		glTexCoord2f(1.0f, 0.0f);
 		glVertex3f(1.0f, -1.0f, 0.0f);
+		glEnd();
+		// Unbind texture
+		glBindTexture(GL_TEXTURE_2D, 0);
+	}
+	glPopMatrix();
+
+	// ------------- DRAW TECH STACK ROLL --------------
+	glLoadIdentity();
+	glPushMatrix();
+	{
+		glTranslatef(0.0f, tech_stack_PosY, -8.8f);
+		glScalef(1.0f, 1.0f, 1.0f);
+		glBindTexture(GL_TEXTURE_2D, texture_tech_stack);
+		
+		// Draw quad here
+		glBegin(GL_QUADS);
+		// Front face
+		// Top Right
+		glTexCoord2f(1.0f, 1.0f);
+		glVertex3f(2.5f, 1.5f, 0.0f);
+		// Top Left
+		glTexCoord2f(0.0f, 1.0f);
+		glVertex3f(-2.5f, 1.5f, 0.0f);
+		// Bottom Left
+		glTexCoord2f(0.0f, 0.0f);
+		glVertex3f(-2.5f, -1.5f, 0.0f);
+		// Bottom Right
+		glTexCoord2f(1.0f, 0.0f);
+		glVertex3f(2.5f, -1.5f, 0.0f);
+		glEnd();
+		// Unbind texture
+		glBindTexture(GL_TEXTURE_2D, 0);
+	}
+	glPopMatrix();
+
+	// ------------- DRAW CREDITS ROLL --------------
+	glLoadIdentity();
+	glPushMatrix();
+	{
+		glTranslatef(0.0f, credits_PosY, -8.8f);
+		glScalef(1.0f, 1.0f, 1.0f);
+		glBindTexture(GL_TEXTURE_2D, texture_credits);
+		
+		// Draw quad here
+		glBegin(GL_QUADS);
+		// Front face
+		// Top Right
+		glTexCoord2f(1.0f, 1.0f);
+		glVertex3f(2.5f, 2.0f, 0.0f);
+		// Top Left
+		glTexCoord2f(0.0f, 1.0f);
+		glVertex3f(-2.5f, 2.0f, 0.0f);
+		// Bottom Left
+		glTexCoord2f(0.0f, 0.0f);
+		glVertex3f(-2.5f, -2.0f, 0.0f);
+		// Bottom Right
+		glTexCoord2f(1.0f, 0.0f);
+		glVertex3f(2.5f, -2.0f, 0.0f);
+		glEnd();
+		// Unbind texture
+		glBindTexture(GL_TEXTURE_2D, 0);
+	}
+	glPopMatrix();
+
+	// ------------- DRAW POST CREDITS ROLL --------------
+	glLoadIdentity();
+	glPushMatrix();
+	{
+		glTranslatef(0.0f, post_credits_PosY, -8.8f);
+		glScalef(1.0f, 1.0f, 1.0f);
+		glBindTexture(GL_TEXTURE_2D, texture_post_credits);
+		
+		// Draw quad here
+		glBegin(GL_QUADS);
+		// Front face
+		// Top Right
+		glTexCoord2f(1.0f, 1.0f);
+		glVertex3f(2.5f, 1.8f, 0.0f);
+		// Top Left
+		glTexCoord2f(0.0f, 1.0f);
+		glVertex3f(-2.5f, 1.8f, 0.0f);
+		// Bottom Left
+		glTexCoord2f(0.0f, 0.0f);
+		glVertex3f(-2.5f, -1.8f, 0.0f);
+		// Bottom Right
+		glTexCoord2f(1.0f, 0.0f);
+		glVertex3f(2.5f, -1.8f, 0.0f);
 		glEnd();
 		// Unbind texture
 		glBindTexture(GL_TEXTURE_2D, 0);
@@ -279,7 +369,17 @@ void drawSkyAndUnderwater(void)
 void updateSkyAndUnderwater(void)
 {
 	// Update fish_01 here
-	if (iTimeElapsed > 0 && iTimeElapsed < 500)
+	if (iTimeElapsed > 0 && iTimeElapsed < 800)
+	{
+		fish_01_PosX += fish_01_Speed;
+		if (fish_01_PosX >= 10.0f)
+		{
+			fish_01_PosX = -10.0f;
+		}
+	}
+
+	// Update all fishes here
+	if (iTimeElapsed > 150 && iTimeElapsed < 810)
 	{
 		fish_01_PosX += fish_01_Speed;
 		fish_02_PosX -= fish_02_Speed;
@@ -309,12 +409,42 @@ void updateSkyAndUnderwater(void)
 	}
 
 	// Update penguin here
-	if (iTimeElapsed > 200 && iTimeElapsed < 900)
+	if (iTimeElapsed > 350 && iTimeElapsed < 820)
 	{
 		penguin_PosX -= penguin_Speed;
 		if (penguin_PosX <= -10.0f)
 		{
 			penguin_PosX = 10.0f;
+		}
+	}
+
+	// Update Techstack here
+	if (iTimeElapsed > 800 && iTimeElapsed < 950)
+	{
+		tech_stack_PosY += tech_stack_Speed;
+		if (tech_stack_PosY >= 10.0f)
+		{
+			tech_stack_PosY = 10.0f;
+		}
+	}
+
+	// Update Credits here
+	if (iTimeElapsed > 850 && iTimeElapsed < 980)
+	{
+		credits_PosY += credits_Speed;
+		if (credits_PosY >= 10.0f)
+		{
+			credits_PosY = 10.0f;
+		}
+	}
+
+	// Update Post Credits here
+	if (iTimeElapsed > 900 && iTimeElapsed < 1100)
+	{
+		post_credits_PosY += post_credits_Speed;
+		if (post_credits_PosY >= 10.0f)
+		{
+			post_credits_PosY = 10.0f;
 		}
 	}
 }

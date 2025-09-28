@@ -469,6 +469,24 @@ int initialize(void)
 		return(-16);
 	}
 
+	if (LoadPNGTexture(&texture_tech_stack, "../assets/TechStackRoll.png") == FALSE)
+	{
+		fprintf(gpFile, "LoadPNGTexture() for texture_tech_stack failed\n");
+		return(-17);
+	}
+
+	if (LoadPNGTexture(&texture_credits, "../assets/CreditsRoll.png") == FALSE)
+	{
+		fprintf(gpFile, "LoadPNGTexture() for texture_credits failed\n");
+		return(-18);
+	}
+
+	if (LoadPNGTexture(&texture_post_credits, "../assets/PostCreditsRoll.png") == FALSE)
+	{
+		fprintf(gpFile, "LoadPNGTexture() for texture_post_credits failed\n");
+		return(-18);
+	}
+
 	// enabling texture
 	glEnable(GL_TEXTURE_2D);
 

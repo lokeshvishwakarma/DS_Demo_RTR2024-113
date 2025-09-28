@@ -46,6 +46,13 @@ extern float fish_05_Speed;
 extern float penguin_PosX;
 extern float penguin_PosY;
 extern float penguin_Speed;
+extern float tech_stack_PosX;
+extern float tech_stack_PosY;
+extern float tech_stack_Speed;
+extern float credits_PosY;
+extern float credits_Speed;
+extern float post_credits_PosY;
+extern float post_credits_Speed;
 
 // Alpha related variables
 extern float alpha;
