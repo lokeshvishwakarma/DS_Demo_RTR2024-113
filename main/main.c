@@ -68,6 +68,7 @@ extern GLuint texture_sky_and_underwater = 0;
 extern GLuint texture_sun = 0;
 extern GLuint texture_water = 0;
 extern GLuint texture_penguin = 0;
+extern GLuint texture_turtle = 0;
 extern GLuint texture_fish_01 = 0;
 extern GLuint texture_fish_02 = 0;
 extern GLuint texture_fish_03 = 0;
@@ -469,22 +470,28 @@ int initialize(void)
 		return(-16);
 	}
 
+	if (LoadPNGTexture(&texture_turtle, "../assets/Turtle.png") == FALSE)
+	{
+		fprintf(gpFile, "LoadPNGTexture() for texture_turtle failed\n");
+		return(-17);
+	}
+
 	if (LoadPNGTexture(&texture_tech_stack, "../assets/TechStackRoll.png") == FALSE)
 	{
 		fprintf(gpFile, "LoadPNGTexture() for texture_tech_stack failed\n");
-		return(-17);
+		return(-18);
 	}
 
 	if (LoadPNGTexture(&texture_credits, "../assets/CreditsRoll.png") == FALSE)
 	{
 		fprintf(gpFile, "LoadPNGTexture() for texture_credits failed\n");
-		return(-18);
+		return(-19);
 	}
 
 	if (LoadPNGTexture(&texture_post_credits, "../assets/PostCreditsRoll.png") == FALSE)
 	{
 		fprintf(gpFile, "LoadPNGTexture() for texture_post_credits failed\n");
-		return(-18);
+		return(-20);
 	}
 
 	// enabling texture

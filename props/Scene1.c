@@ -12,6 +12,7 @@ extern texture_fish_03;
 extern texture_fish_04;
 extern texture_fish_05;
 extern texture_penguin;
+extern texture_turtle;
 extern texture_tech_stack;
 extern texture_credits;
 extern texture_post_credits;
@@ -249,6 +250,35 @@ void drawSkyAndUnderwater(void)
 	}
 	glPopMatrix();
 
+	// ------------- DRAW TURTLE --------------
+	glLoadIdentity();
+	glPushMatrix();
+	{
+		glTranslatef(turtle_PosX, turtle_PosY, -8.8f);
+		glScalef(0.3f, 0.3f, 0.3f);
+		glBindTexture(GL_TEXTURE_2D, texture_turtle);
+		
+		// Draw quad here
+		glBegin(GL_QUADS);
+		// Front face
+		// Top Right
+		glTexCoord2f(1.0f, 1.0f);
+		glVertex3f(2.0f, 1.0f, 0.0f);
+		// Top Left
+		glTexCoord2f(0.0f, 1.0f);
+		glVertex3f(-2.0f, 1.0f, 0.0f);
+		// Bottom Left
+		glTexCoord2f(0.0f, 0.0f);
+		glVertex3f(-2.0f, -1.0f, 0.0f);
+		// Bottom Right
+		glTexCoord2f(1.0f, 0.0f);
+		glVertex3f(2.0f, -1.0f, 0.0f);
+		glEnd();
+		// Unbind texture
+		glBindTexture(GL_TEXTURE_2D, 0);
+	}
+	glPopMatrix();
+
 	// ------------- DRAW TECH STACK ROLL --------------
 	glLoadIdentity();
 	glPushMatrix();
@@ -415,6 +445,16 @@ void updateSkyAndUnderwater(void)
 		if (penguin_PosX <= -10.0f)
 		{
 			penguin_PosX = 10.0f;
+		}
+	}
+
+	// Update turtle here
+	if (iTimeElapsed > 520 && iTimeElapsed < 820)
+	{
+		turtle_PosX -= turtle_Speed;
+		if (turtle_PosX <= -10.0f)
+		{
+			turtle_PosX = 10.0f;
 		}
 	}
 
