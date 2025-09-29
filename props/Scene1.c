@@ -399,7 +399,7 @@ void drawSkyAndUnderwater(void)
 void updateSkyAndUnderwater(void)
 {
 	// Update fish_01 here
-	if (iTimeElapsed > 0 && iTimeElapsed < 1000)
+	if (iTimeElapsed > 0 && iTimeElapsed < 1020)
 	{
 		fish_01_PosX += fish_01_Speed;
 		if (fish_01_PosX >= 10.0f)
@@ -409,7 +409,7 @@ void updateSkyAndUnderwater(void)
 	}
 
 	// Update all fishes here
-	if (iTimeElapsed > 150 && iTimeElapsed < 1100)
+	if (iTimeElapsed > 150 && iTimeElapsed < 1000)
 	{
 		fish_01_PosX += fish_01_Speed;
 		fish_02_PosX -= fish_02_Speed;
@@ -439,7 +439,7 @@ void updateSkyAndUnderwater(void)
 	}
 
 	// Update penguin here
-	if (iTimeElapsed > 350 && iTimeElapsed < 1050)
+	if (iTimeElapsed > 400 && iTimeElapsed < 1080)
 	{
 		penguin_PosX -= penguin_Speed;
 		if (penguin_PosX <= -10.0f)
@@ -449,7 +449,7 @@ void updateSkyAndUnderwater(void)
 	}
 
 	// Update turtle here
-	if (iTimeElapsed > 520 && iTimeElapsed < 1050)
+	if (iTimeElapsed > 530 && iTimeElapsed < 1170)
 	{
 		turtle_PosX -= turtle_Speed;
 		if (turtle_PosX <= -10.0f)
@@ -459,7 +459,7 @@ void updateSkyAndUnderwater(void)
 	}
 
 	// Update Techstack here
-	if (iTimeElapsed > 1100 && iTimeElapsed < 1300)
+	if (iTimeElapsed > 1180 && iTimeElapsed < 1300)
 	{
 		tech_stack_PosY += tech_stack_Speed;
 		if (tech_stack_PosY >= 10.0f)
@@ -469,7 +469,7 @@ void updateSkyAndUnderwater(void)
 	}
 
 	// Update Credits here
-	if (iTimeElapsed > 1200 && iTimeElapsed < 1400)
+	if (iTimeElapsed > 1280 && iTimeElapsed < 1400)
 	{
 		credits_PosY += credits_Speed;
 		if (credits_PosY >= 10.0f)
@@ -479,7 +479,7 @@ void updateSkyAndUnderwater(void)
 	}
 
 	// Update Post Credits here
-	if (iTimeElapsed > 1300 && iTimeElapsed < 1500)
+	if (iTimeElapsed > 1380 && iTimeElapsed < 1500)
 	{
 		post_credits_PosY += post_credits_Speed;
 		if (post_credits_PosY >= 10.0f)

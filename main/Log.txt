@@ -1618,20 +1618,4 @@ Transitioning to next scene at time 200 seconds
 1398 seconds
 1399 seconds
 1400 seconds
-1401 seconds
-1402 seconds
-1403 seconds
-1404 seconds
-1405 seconds
-1406 seconds
-1407 seconds
-1408 seconds
-1409 seconds
-1410 seconds
-1411 seconds
-1412 seconds
-1413 seconds
-1414 seconds
-1415 seconds
-1416 seconds
 Program terminated successfully
